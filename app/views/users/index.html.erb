@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+ 
+ 
+
+<div class="container">
+    <div class="row col-md-10 col-md-offset-4 custyle">
+    <table class="table table-striped custab">
+    <thead>
+     <%= link_to('+New User', new_user_path, class:"btn btn-primary btn-xs pull-right") %>
+
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email ID</th>
+            <th class="">Actions</th>
+        </tr>
+    </thead>
+          
+
+              <% @users.each do |user| %>
+              <tr>
+                  <td> <%= user.id%> </td>
+                  <td><%= user.name %></td>
+                  <td><%= user.email %></td>
+                  <td>
+                    <span> <%=link_to('Show',user, class:"btn btn-info btn-xs glyphicon glyphicon-edit")%></span>
+                    <span> <%=link_to('Edit',edit_user_path(user), class:"btn btn-secondary btn-xs glyphicon glyphicon-edit")%></span>
+                    <span> <%= link_to('Destroy',user, method: :delete, data:{confirm: "are you sure?"} ,class:"btn btn-warning btn-xs glyphicon glyphicon-edit")%></span>
+                  </td> 
+               </tr>
+                 <% end %>
+           
+    </table>
+    </div>
+</div>
