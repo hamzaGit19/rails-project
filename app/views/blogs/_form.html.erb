@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="col-md-8">
+    <div class="form-area">
+      <%= form_with(model: blog, local: true) do |form| %>
+        <br style="clear:both">
+        <h3 style="margin-bottom: 25px; text-align: center;">Start writing..</h3>
+        <div class="form-group">
+          <%= form.text_field(:title,  class: 'form-control input_user', placeholder: 'Title') %>
+        </div>
+        <div class="form-group">
+          <%= form.text_area(:content,  class: 'form-control input_user', placeholder: 'Content', rows:7) %>
+        </div>
+        <div class="form-group">
+          <%= form.text_field(:user_id,  class: 'form-control input_user', placeholder: 'User ID') %>
+        </div>
+        <div class="form-group">
+          <%= form.collection_select(:tag_id, @tags, :id, :name)%>
+        </div>
+        <% if current_page?(:controller => 'blogs', :action => 'new') %>
+          <%= form.submit("Create", class:"btn btn-primary pull-right")%>
+        <% else %>
+          <%= form.submit("Update", class:"btn btn-primary pull-right")%>
+        <%end%>
+      <%end%>
+    </div>
+  </div>
+</div>

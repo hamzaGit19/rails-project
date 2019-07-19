@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+<%= link_to('+New Blog', new_blog_path, class:"btn btn-primary btn-xs pull-right") %>
+<div class="container">
+  <div class="span8">
+    <% @blogs.each do |blog| %>
+      <h1> <%= link_to blog.title, blog %></h1>
+      By: <%= user_name(blog) %>
+      <p><%= blog.content %></p>
+      <div>
+        <span class="badge badge-success">Posted  <%= blog.created_at%></span>
+      </div>
+      <div class="pull-right"> Tags:
+        <span class="label">
+          <% blog.tags.each do |tag| %>
+            <span class="badge badge-secondary"> <%= tag.name %> </span>
+          <% end %>
+        </span>
+      </div>
+      <td><%= link_to('Edit',edit_blog_path(blog), class:"btn btn-warning")%></td>
+      <td><%= link_to('Destroy',blog, method: :delete, data:{confirm: "are you sure?"} ,class:"btn btn-danger")%></td>
+      <hr>
+    <% end %>
+  </div>
+</div>

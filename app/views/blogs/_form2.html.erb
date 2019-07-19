@@ -1,0 +1,11 @@
+<h1> Hello, you may create a new Blog :) </h1>
+<%= bootstrap_form_for(@blog) do |f| %>
+  <%= f.email_field :title %>
+  <%= f.text_area :content %>
+  <%= f.text_area :user_id %>
+  <div class="field">
+    <%= f.label :tag_name%>
+    <%= f.text_area :tag_name %>
+  </div>
+  <%= f.submit "Create" %>
+<% end %>
