@@ -4,7 +4,7 @@
   <div class="span8">
     <% @blogs.each do |blog| %>
       <h1> <%= link_to blog.title, blog %></h1>
-      By: <%= user_name(blog) %>
+      By:<%= link_to user_name(blog), user_path(blog.user_id) %>
       <p><%= blog.content %></p>
       <div>
         <span class="badge badge-success">Posted  <%= blog.created_at%></span>

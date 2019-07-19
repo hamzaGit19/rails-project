@@ -1,26 +1,24 @@
 <p id="notice"><%= notice %></p>
-
- 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
-
+<div class="">
+  <span> <%=link_to('Edit',edit_user_path(@user), class:"btn btn-info btn-xs glyphicon glyphicon-edit")%></span>
+  <span> <%=link_to('Back',users_path, class:"btn btn-secondary btn-xs glyphicon glyphicon-edit")%></span>
+</div>
 <div class="profile-container">
-    <div class="fb-profile">
-        <img align="left" class="fb-image-lg" src="http://lorempixel.com/850/280/nightlife/5/" alt="Profile image example"/>
-        <img align="left" class="fb-image-profile thumbnail" src="http://lorempixel.com/180/180/people/7/" alt="Profile image example"/>
-        <div class="fb-profile-text">
-            <h1><%=@user.name%></h1>
-            <p>Email:<%=@user.email%> </p>
-        </div>
+  <div class="fb-profile">
+    <img align="left" class="fb-image-lg" src="http://lorempixel.com/850/280/nightlife/5/" alt="Profile image example"/>
+    <img align="left" class="fb-image-profile thumbnail" src="http://lorempixel.com/180/180/people/7/" alt="Profile image example"/>
+    <div class="fb-profile-text">
+      <h1><%=@user.name%></h1>
+      <p>Email:<%=@user.email%> </p>
     </div>
-</div> <!-- /container -->  
-<tr>
+  </div>
+</div>
+<!-- /container -->
 <section>
   <h1>Articles</h1>
-   <% blogs =get_blogs(@user)%>
+  <% blogs =get_blogs(@user)%>
   <% blogs.each do |b| %>
-   <%= link_to b.title, b %>
-  <br>
+    <%= link_to b.title, b %>
+    <br>
   <%end%>
-  
- </section>
+</section>

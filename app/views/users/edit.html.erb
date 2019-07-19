@@ -1,6 +1,6 @@
-<h1>Editing User</h1>
-
+<div class="">
+  <span> <%=link_to('Profile',@user, class:"btn btn-info btn-xs glyphicon glyphicon-edit")%></span>
+  <span> <%=link_to('Back',users_path, class:"btn btn-secondary btn-xs glyphicon glyphicon-edit")%></span>
+</div>
 <%= render 'form', user: @user %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+ 

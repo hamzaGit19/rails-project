@@ -1,15 +1,22 @@
 <p id="notice"><%= notice %></p>
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
-<p>
-  <strong>Content:</strong>
-  <%= @blog.content %>
-</p>
-<p>
-  <strong>Tags:</strong>
-  <%= @blog.tags.name %>
-</p>
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+<%= link_to('+New Blog', new_blog_path, class:"btn btn-primary btn-xs pull-right") %>
+<div class="container">
+  <div class="span8">
+    <h1> <%= link_to @blog.title, @blog %></h1>
+    By:<%= link_to user_name(@blog), user_path(@blog.user_id)  %>
+    <p><%= @blog.content %></p>
+    <div>
+      <span class="badge badge-success">Posted  <%= @blog.created_at%></span>
+    </div>
+    <div class="pull-right"> Tags:
+      <span class="label">
+        <% @blog.tags.each do |tag| %>
+          <span class="badge badge-secondary"> <%= tag.name %> </span>
+        <% end %>
+      </span>
+    </div>
+    <td><%= link_to('Edit',edit_blog_path(@blog), class:"btn btn-warning")%></td>
+    <td><%= link_to('Destroy',@blog, method: :delete, data:{confirm: "are you sure?"} ,class:"btn btn-danger")%></td>
+    <hr>
+  </div>
+</div>

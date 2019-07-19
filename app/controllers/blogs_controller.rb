@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  
+
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   # GET /blogs
@@ -33,16 +33,16 @@ class BlogsController < ApplicationController
     @blog = Blog.new(blog_params.except(:tag_id))
     tag_id = blog_params[:tag_id]
     # @blog = Blog.new(blog_params.except(:tag_name))
-     @tag = Tag.find(tag_id)
-     @blog.tags << @tag 
+    @tag = Tag.find(tag_id)
+    @blog.tags << @tag
 
-   
+
     respond_to do |format|
       if @blog.save
         format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
         format.json { render :show, status: :created, location: @blog }
 
-          
+
       else
         format.html { render :new }
         format.json { render json: @blog.errors, status: :unprocessable_entity }
@@ -56,14 +56,14 @@ class BlogsController < ApplicationController
 
     tag_id = blog_params[:tag_id]
     # @blog = Blog.new(blog_params.except(:tag_name))
-     @tag = Tag.find(tag_id)
-     if(!@blog.tags.exists?(:id => @tag.id))
-       @blog.tags << @tag 
-     end
+    @tag = Tag.find(tag_id)
+    if(!@blog.tags.exists?(:id => @tag.id))
+      @blog.tags << @tag
+    end
     puts  "---- taglog---" + @tag.name+ "------"
 
 
-  
+
 
     respond_to do |format|
       if @blog.update(blog_params.except(:tag_id))
@@ -87,17 +87,17 @@ class BlogsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_blog
-      @blog = Blog.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_blog
+    @blog = Blog.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def blog_params
-      params.require(:blog).permit(:title, :content, :user_id, :tag_name, :tag_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def blog_params
+    params.require(:blog).permit(:title, :content, :user_id, :tag_name, :tag_id)
+  end
 
-    def tag_params
-      params.require(:tag).permit(:tag_name)
-    end
+  def tag_params
+    params.require(:tag).permit(:tag_name)
+  end
 end
