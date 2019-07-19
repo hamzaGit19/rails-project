@@ -33,6 +33,7 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'devise'
 gem "bootstrap_form", ">= 4.2.0"
+gem 'kaminari'
 
 
 # Use Capistrano for deployment

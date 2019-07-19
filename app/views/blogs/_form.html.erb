@@ -1,4 +1,15 @@
 <div class="container">
+  <div class='row'>
+    <div class='col-md-4'>
+      Test something  Test something  Test something  Test something  Test something  Test something Test something  Test something  Test something  Test something  Test something  Test something Test something  Test something  Test something  Test something  Test something  Test something Test something  Test something  Test something  Test something  Test something  Test something Test something  Test something  Test something  Test something  Test something  Test something Test something  Test something  Test something  Test something  Test something  Test something 
+    </div>
+    <div class='col-md-4'>
+      Test something  Test something  Test something  Test something  Test something  Test something Test something  Test something  Test something  Test something  Test something  Test something Test something  Test something  Test something  Test something  Test something  Test something Test something  Test something  Test something  Test something  Test something  Test something Test something  Test something  Test something  Test something  Test something  Test something Test something  Test something  Test something  Test something  Test something  Test something 
+    </div>
+    <div class='col-md-4'>
+      Test something  Test something  Test something  Test something  Test something  Test something Test something  Test something  Test something  Test something  Test something  Test something Test something  Test something  Test something  Test something  Test something  Test something Test something  Test something  Test something  Test something  Test something  Test something Test something  Test something  Test something  Test something  Test something  Test something Test something  Test something  Test something  Test something  Test something  Test something 
+    </div>
+  </div>
   <div class="col-md-8">
     <div class="form-area">
       <%= form_with(model: blog, local: true) do |form| %>
@@ -11,11 +22,9 @@
           <%= form.text_area(:content,  class: 'form-control input_user', placeholder: 'Content', rows:7) %>
         </div>
         <div class="form-group">
-          <%= form.text_field(:user_id,  class: 'form-control input_user', placeholder: 'User ID') %>
+          <%= form.collection_select(:tag_ids, @tags, :id, :name, { prompt: 'Add Tags' }, { multiple: true, class: 'form-control' })%>
         </div>
-        <div class="form-group">
-          <%= form.collection_select(:tag_id, @tags, :id, :name)%>
-        </div>
+
         <% if current_page?(:controller => 'blogs', :action => 'new') %>
           <%= form.submit("Create", class:"btn btn-primary pull-right")%>
         <% else %>
