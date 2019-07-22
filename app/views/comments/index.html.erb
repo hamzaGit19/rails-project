@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row col-md-10 col-md-offset-4 custyle">
+    <table class="table table-striped custab">
+      <thead>
+        <%# <%= link_to('+New User', new_user_path, class:"btn btn-primary btn-xs pull-right") %> %>
+        <tr>
+          <th>Name</th>
+          <th>body</th>
+          <%# <th>Email ID</th> %>
+          <th class="">Actions</th>
+        </tr>
+      </thead>
+      <% @comments.each do |comment| %>
+        <tr>
+          <td> <%= comment.blog_id%> </td>
+          <td><%= comment.body %></td>
+          <%# <td><%= comment.email %></td> %>
+          <td>
+             <span> <%= link_to('Destroy',comment, method: :delete, data:{confirm: "are you sure?"}, :remote => true, :class => 'delete_comment')%></span>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

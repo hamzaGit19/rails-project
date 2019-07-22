@@ -1,3 +1,24 @@
 // Place all the styles related to the Tags controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.parent .child1, .paren1 .child2 {
+	
+}
+
+.parent .child2 {
+	
+}
+
+.parent {
+	.child1 {
+
+		&hover
+
+	}
+
+	.child2 {
+
+	}
+}

@@ -12,6 +12,10 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    # puts "----BLOG ID:"+params[:id]"-----"
+    @comments = Comment.where("blog_id=?", params[:id])
+
+
   end
 
   # GET /blogs/new
